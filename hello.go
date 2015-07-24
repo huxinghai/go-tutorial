@@ -24,12 +24,12 @@ func main() {
 	fmt.Printf("%v \n\r", slice)
 
 	source := []string{"apple", "orange", "plum", "banana", "grape"}
-	// 接着我们在源 slice 之上创建一个新的 slice
+
 	slice2 := source[2:3:3]
 
 	fmt.Printf("%v \n\r", slice2)
 
-	fmt.Printf("%f \n", average([]float64{1, 2, 3, 4, 5}))
+	fmt.Printf("avg %f \n", average([]float64{1, 2, 3, 4, 5}))
 	var s stack
 	s.push(20)
 	s.push(40)
