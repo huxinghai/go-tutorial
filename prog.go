@@ -21,7 +21,6 @@ func loop(inc int) {
 
 func main() {
 	for {
-		fmt.Printf("p: %d, pc: %d \n", p, pc)
 		switch prog[pc] {
 		case '>':
 			p++
@@ -32,7 +31,7 @@ func main() {
 		case '-':
 			a[p]--
 		case '.':
-			fmt.Print(string(a[p]))
+			fmt.Println(".", string(a[p]), a, p)
 		case '[':
 			if a[p] == 0 {
 				loop(1)
