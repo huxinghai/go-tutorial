@@ -24,6 +24,14 @@ func sq(in <-chan int) <-chan int {
 	return out
 }
 
+func sum(a []int, c chan int) {
+	sum := 0
+	for _, value := range a {
+		sum += value
+	}
+	c <- sum
+}
+
 func main() {
 	c := gen(2, 3)
 	out := sq(c)
@@ -31,4 +39,15 @@ func main() {
 	// Consume the output.
 	fmt.Println(<-out)
 	fmt.Println(<-out)
+
+	ci := make(chan int)
+
+	arr := []int{1, 2, 3, 4, 5, 6}
+
+	go sum(arr[:len(arr)/2], ci)
+	go sum(arr[len(arr)/2:], ci)
+
+	x, y := <-ci, <-ci
+	fmt.Println("x+y=", x+y)
+	close(ci)
 }
