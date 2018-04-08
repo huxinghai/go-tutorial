@@ -9,3 +9,5 @@ body := map[string]interface{}{
   },
 }
 resp, err := c.Search(body)
+
+fmt.Printf(err)
